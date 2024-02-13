@@ -1,4 +1,22 @@
 
+* [Docker](#Docker)
+  * [Commands](#essential-docker-commands)
+  * [Dockerfile](#dockerfile)
+  * [Example](#end-to-end-example)
+
+# Docker
+### What is Docker?
+Docker is a containerization platform that allows to put applications and their dependencies into isolated, lightweight containers.
+<br>
+These containers can run consistently across different environments, such as development, testing, and production, ensuring that an application behaves the same way regardless of the underlying infrastructure.
+
+Docker containers work by running on top of the Docker Engine, which uses the host operating system's kernel but allows each container to be isolated, manage its own dependencies, and execute independently.
+
+### Key Docker Concepts:
+ - **Images**: Docker images are the building blocks of containers. They contain everything needed to run an application, including the code, runtime, system tools, and libraries.
+ - **Containers**: Containers are instances of Docker images. They run in isolated environments and provide a consistent runtime environment for applications.
+ - **Docker Hub**: Docker Hub is a repository for finding and sharing Docker images.
+
 ## Essential Docker Commands
  - `docker build` Build an image from a Dockerfile
  - `docker run` Create and run a new container from an image
@@ -90,7 +108,6 @@ Starts one or more containers.
 **Examples:**
  - `docker start {container name or ID}` - Start a stopped container.
  - `docker start -a {container name or ID}` - Start a stopped container and attach to it.
- - `docker start -i {container name or ID}` - Start a stopped container and attach STDIN, along with STDOUT/STDERR.
 
 ---
 
@@ -140,12 +157,53 @@ Removes one or more images from the local storage. This command is used to manag
 
 ---
 
+### `docker image`
+Manages images. This is a parent command for several subcommands used to manage images in Docker.
+
+`docker image [COMMAND]`
+
+Some common subcommands include:
+- `ls`: List images.
+- `rm`: Remove one or more images.
+- `pull`: Pull an image or a repository from a registry.
+- `push`: Push an image or a repository to a registry.
+- `build`: Build an image from a Dockerfile.
+
+Each subcommand has its own set of options and usage.
+
+**Examples:**
+- `docker image ls` - List all images.
+- `docker image rm {image ID or name:tag}` - Remove a specific image.
+- `docker image pull {repository:tag}` - Pull an image from a registry.
+- `docker image push {repository:tag}` - Push an image to a registry.
+
+---
+
+### `docker images`
+Lists all locally stored Docker images. This command provides a quick way to see what images are available on your system.
+
+`docker images [OPTIONS] [REPOSITORY[:TAG]]`
+
+- **Optional parameters**
+  - `-a, --all`: Show all images (default hides intermediate images).
+  - `-q, --quiet`: Only show image IDs.
+  - `--format`: Pretty-print images using a Go template.
+  - `-f, --filter`: Filter output based on conditions provided.
+
+**Examples:**
+- `docker images` - List all top-level images, their repository, tag, ID, creation time, and size.
+- `docker images -a` - List all images, including intermediate images.
+- `docker images -q` - List the IDs of all images.
+- `docker images --format "{{.Repository}}:{{.Tag}} {{.Size}}"` - List images with a custom format showing repository, tag, and size.
+- `docker images -f "dangling=true"` - List all dangling images (images without tags).
+
+---
 
 
 ## Dockerfile
 In summary, this Dockerfile defines a multi-stage build process where the first stage builds the .NET application, and the second stage prepares a lighter runtime environment to run the application.
 
-```docker
+```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /App
 
@@ -181,3 +239,42 @@ ENTRYPOINT ["dotnet", "{service name}.dll"]
 `COPY --from=build-env /App/out .` - Copies the compiled application from the out directory of the build-env (*the first stage*) to the current working directory (*/App*) of the current stage. This means we are transferring only the necessary files needed to run the application, leaving behind the source code, SDK, and any other unnecessary files.
 
 `ENTRYPOINT ["dotnet", "{service name}.dll"]` - Specifies the command to run when the container starts. This is the main assembly that was compiled and published in the previous steps.
+
+
+# End-to-end example
+
+**Create a Dockerfile**
+```dockerfile
+# Use the .NET 8 SDK image to build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
+WORKDIR /App
+
+# Copy csproj and restore any dependencies (via NuGet)
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy the project files and build the application
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Use the .NET 8 runtime image to run the application
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /App
+COPY --from=build-env /App/out .
+ENTRYPOINT ["dotnet", "MyApp.dll"]
+```
+
+This Dockerfile does the following:
+ - Starts with the .NET 8 SDK image to build your application.
+ - Sets the working directory to /App.
+ - Copies the .csproj file and restores dependencies.
+ - Copies the application's source code and publishes the application to the out directory.
+ - For the final image, it switches to the .NET 8 runtime image.
+ - Copies the published application from the build environment to the runtime environment.
+ - Specifies the command to run the application.
+
+**Build the Docker Image** - `docker build -t my-dotnet-image .`
+
+**Run the Container** - `docker run -d -p 8080:80 --name my-dotnet-container my-dotnet-image`
+
+**View the Container's Logs** - `docker logs my-dotnet-container`
