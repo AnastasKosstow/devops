@@ -1,7 +1,6 @@
 
 * [Docker](#Docker)
   * [Run](#run)
-  * [Dockerfile](#dockerfile)
 
 # Docker
 ### 𝖶𝗁𝖺𝗍 𝗂𝗌 𝖣𝗈𝖼𝗄𝖾𝗋?
