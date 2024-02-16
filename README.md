@@ -138,7 +138,7 @@ For example, if we want to create a separate network for a webApp with database:
    ```console
    docker network create \
       --driver bridge \
-      --subnet 182.18.0.0/16 \
+      --subnet 192.168.0.0/24 \
       user-net
    ```
  - Create a Postgres instance
@@ -169,6 +169,42 @@ For example, if we want to create a separate network for a webApp with database:
         --network user-net \
         -p 5000:5000 \
         --detach \
-        webApp-img
+        webapp-img
      ```
-   
+
+
+ - Verify both containers are in the same network
+     ```console
+        docker network inspect user-net
+     ```
+     ```json
+     [
+      {
+        "Name": "user-net",
+        "Id": "9347e11baa1980196bf057c5423ea17aba7d27f322f87f8672abd660bb66618f",
+
+        ...........
+     
+        "ConfigOnly": false,
+        "Containers": {
+            "47154a58b83f213dc95dc82df776e4738d96ccbb2b7e3d205ae59dd212326e1d": {
+                "Name": "postgres-db",
+                "EndpointID": "55227205e9f90f09c612becc5dbd936eeca60e5123e5d6da486c1fe325b5bd51",
+                "MacAddress": "02:42:c0:a8:00:02",
+                "IPv4Address": "192.168.0.2/24",
+                "IPv6Address": ""
+            },
+            "4e032ad8e55a3bec9207cba652bf8a3d2a89e1a155b2d4d8166f82af5c1a35aa": {
+                "Name": "webapp-container",
+                "EndpointID": "369656ce018825a47d51c57d7ca1391468df015e3649c871d98c6790a7485d68",
+                "MacAddress": "02:42:c0:a8:00:03",
+                "IPv4Address": "192.168.0.3/24",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+      }
+     ]
+     ```
+
