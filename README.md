@@ -160,7 +160,7 @@ For example, if we want to create a separate network for a webApp with database:
  - Create a webApp instance
    - Build webApp image
      ```console
-     docker build --name webApp-img .
+     docker build -t webapp-img .
      ```
    - Build webApp container
      ```console
