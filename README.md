@@ -247,7 +247,7 @@ docker run --name webapp -p 50:5000 webapp
 > [!NOTE]
 > 𝖵𝗈𝗅𝗎𝗆𝖾𝗌 𝖺𝗋𝖾 𝗇𝗈𝗍 𝖺𝗎𝗍𝗈𝗆𝖺𝗍𝗂𝖼𝖺𝗅𝗅𝗒 𝗋𝖾𝗆𝗈𝗏𝖾𝖽 𝗐𝗁𝖾𝗇 𝖺 𝖼𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋 𝗂𝗌 𝗋𝖾𝗆𝗈𝗏𝖾𝖽, 𝗌𝗈 𝗍𝗁𝖾𝗒 𝗇𝖾𝖾𝖽 𝗍𝗈 𝖻𝖾 𝖼𝗅𝖾𝖺𝗇𝖾𝖽 𝗎𝗉 𝗆𝖺𝗇𝗎𝖺𝗅𝗅𝗒 𝗂𝖿 𝗇𝗈 𝗅𝗈𝗇𝗀𝖾𝗋 𝗇𝖾𝖾𝖽𝖾𝖽.
 
-
+<br>
 The same exapmle as before - "*𝖼𝗋𝖾𝖺𝗍𝖾 𝖺 𝗌𝖾𝗉𝖺𝗋𝖺𝗍𝖾 𝗇𝖾𝗍𝗐𝗈𝗋𝗄 𝖿𝗈𝗋 𝖺 𝗐𝖾𝖻𝖠𝗉𝗉 𝗐𝗂𝗍𝗁 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾*", but this time with volume for the database:
 
  - 𝖳𝗁𝖾 𝖼𝗈𝗆𝗆𝖺𝗇𝖽 𝖿𝗈𝗋 𝗍𝗁𝖾 𝗇𝖾𝗍𝗐𝗈𝗋𝗄 𝗂𝗌 𝗍𝗁𝖾 𝗌𝖺𝗆𝖾:
@@ -304,6 +304,6 @@ The same exapmle as before - "*𝖼𝗋𝖾𝖺𝗍𝖾 𝖺 𝗌𝖾𝗉𝖺�
         --detach \
         webapp-img
      ```
-
+ ---
 
 
