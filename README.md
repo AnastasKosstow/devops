@@ -389,53 +389,60 @@ From 𝗍𝗁𝖾 𝖽𝗂𝗋𝖾𝖼𝗍𝗈𝗋𝗒 𝗐𝗁𝖾𝗋𝖾 𝗍
          # 𝖣𝗈𝖼𝗄𝖾𝗋 𝖢𝗈𝗆𝗉𝗈𝗌𝖾 𝗅𝗈𝗈𝗄𝗌 𝖿𝗈𝗋 𝖺 𝗏𝗈𝗅𝗎𝗆𝖾 𝗐𝗂𝗍𝗁 𝗍𝗁𝗂𝗌 𝗇𝖺𝗆𝖾.
          # 𝖨𝖿 𝗂𝗍 𝖽𝗈𝖾𝗌𝗇'𝗍 𝖿𝗂𝗇𝖽 𝗈𝗇𝖾, 𝗂𝗍 𝖼𝗋𝖾𝖺𝗍𝖾𝗌 𝖺 𝗇𝖾𝗐 𝗇𝖺𝗆𝖾𝖽 𝗏𝗈𝗅𝗎𝗆𝖾 𝗐𝗂𝗍𝗁 𝗍𝗁𝗂𝗌 𝗇𝖺𝗆𝖾
    ```
- - 𝖬𝖺𝗄𝖾 𝖲𝖾𝗏𝖾𝗋𝖺𝗅 𝖢𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋𝗌 𝖶𝗈𝗋𝗄 𝖶𝗂𝗍𝗁 𝖤𝖺𝖼𝗁 𝖮𝗍𝗁𝖾𝗋
+
+ #### 𝖬𝖺𝗄𝖾 𝖲𝖾𝗏𝖾𝗋𝖺𝗅 𝖢𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋𝗌 𝖶𝗈𝗋𝗄 𝖶𝗂𝗍𝗁 𝖤𝖺𝖼𝗁 𝖮𝗍𝗁𝖾𝗋
    𝖳𝗁𝖾 𝗋𝖾𝖺𝗅 𝗌𝗍𝗋𝖾𝗇𝗀𝗍𝗁 𝗅𝗂𝖾𝗌 𝗂𝗇 𝗂𝗍𝗌 𝖺𝖻𝗂𝗅𝗂𝗍𝗒 𝗍𝗈 𝖾𝖺𝗌𝗂𝗅𝗒 𝗆𝖺𝗇𝖺𝗀𝖾 𝗆𝗎𝗅𝗍𝗂𝗉𝗅𝖾 𝖼𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋𝗌 𝖺𝗇𝖽 𝗆𝖺𝗄𝖾 𝗍𝗁𝖾𝗆 𝖼𝗈𝗆𝗆𝗎𝗇𝗂𝖼𝖺𝗍𝖾 𝗐𝗂𝗍𝗁 𝖾𝖺𝖼𝗁 𝗈𝗍𝗁𝖾𝗋.
    𝖫𝖾𝗍𝗌 𝖼𝗈𝗇𝗌𝗂𝖽𝖾𝗋 𝗍𝗁𝖾 𝗉𝗋𝖾𝗏𝗂𝗈𝗎𝗌 𝗌𝖾𝖼𝗍𝗂𝗈𝗇 𝖾𝗑𝖺𝗆𝗉𝗅𝖾 𝗂𝗇 𝗐𝗁𝗂𝖼𝗁 𝗐𝖾 𝗁𝖺𝗏𝖾 𝖺 𝗐𝖾𝖻𝖠𝗉𝗉 𝖺𝗇𝖽 𝗉𝗈𝗌𝗍𝗀𝗋𝖾𝗌 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗂𝗇 𝗍𝗁𝖾 𝗌𝖺𝗆𝖾 𝗇𝖾𝗍𝗐𝗈𝗋𝗄.
    - 𝖳𝗈 𝖻𝗎𝗂𝗅𝖽 𝗍𝗁𝖾 𝖼𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋𝗌 𝗐𝗂𝗍𝗁 𝖽𝗈𝖼𝗄𝖾𝗋 𝖼𝗈𝗆𝗉𝗈𝗌𝖾 𝖿𝗂𝗋𝗌𝗍 𝗐𝖾 𝗇𝖾𝖾𝖽 𝗍𝗈 𝖺𝖽𝖽 𝗂𝗇 𝖽𝗈𝖼𝗄𝖾𝗋-𝖼𝗈𝗆𝗉𝗈𝗌𝖾.𝗒𝖺𝗆𝗅 𝖿𝗈𝗅𝗅𝗈𝗐𝗂𝗇𝗀 𝖼𝗈𝗆𝗉𝗈𝗇𝖾𝗇𝗍𝗌:
      - postgres database
        ```yaml
-       postgres-db:
-         image: postgres
-         container_name: postgres-db
-         environment:
-           POSTGRES_USER: postgres
-           POSTGRES_PASSWORD: 12345678
-           POSTGRES_DB: postgres_db
+       postgres-db: # defines service for a PostgreSQL database
+         image: postgres # specifies the Docker image to use for the service (latest)
+         container_name: postgres-db # sets a custom name for the created container
+         environment: # sets environment variables within the container
+           POSTGRES_USER: postgres # username
+           POSTGRES_PASSWORD: 12345678 # password
+           POSTGRES_DB: postgres_db # database name
        ```
      - webApp
        ```yaml
-       webapp:
-         image: webapp-img
-         build: .
-         container_name: webApp-container
+       webapp: # defines service for webApp
+         image: webapp-img # specifies the Docker image to use for the service (latest)
+         build:
+           # Specifies the build context - the starting point for the build.
+           # The dot '.' represents the current directory relative to the location of the docker-compose.yml file.
+           context: .
+           # Indicates the path to the Dockerfile relative to the build context.
+           # This path is used by Docker to find the Dockerfile that contains the set of instructions for building the image.
+           dockerfile: path/to/Dockerfile
+         container_name: webApp-container # sets environment variables within the container
        depends_on:
-         - postgres-db
+         - postgres-db # ensures webapp starts after the postgres-db service
        ports:
-         - "5000:5000"
+         - "5000:5000" # maps port 5000 inside the container to port 5000 on the host
        ```
      - network
        ```yaml
-       networks:
-         user-net:
-           driver: bridge
-           ipam:
+       networks: # defines the networks used by the services
+         user-net: # creates a custom network named user-net
+           driver: bridge # use the bridge driver for the network
+           ipam: # Ip Address Management configuration
              config:
-               - subnet: 192.168.0.0/24
+               - subnet: 192.168.0.0/24 # sets a custom subnet for the network
        ```
      - volume
        ```yaml
-       volumes:
-         postgres-db-volume:
+       volumes: # defines the volumes used by the services
+         postgres-db-volume: # declares a named volume for the PostgreSQL data
        ```
    - Not we need to add `volume` for *postgres-db* and `network` for both *postgres-db* and *webApp*
        ```yaml
        volumes:
-         - postgres-db-volume:/var/lib/postgresql/data
+         - postgres-db-volume:/var/lib/postgresql/data # Mounts a named volume for data persistence
        ```
        ```yaml
        networks:
-         - user-net
+         - user-net # connects the service to a custom network
        ```
    - The final `docker-compose.yaml` file should look like this:
      ```yaml
