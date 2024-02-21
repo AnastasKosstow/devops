@@ -6,7 +6,7 @@
   * [Compose](#compose)
 * [Kubernetes](#kubernetes)
   * [Architecture](#kubernetes-basic-architecture) 
-  * [𝖣𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍𝗌](#create-d𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍𝗌) 
+  * [𝖣𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍𝗌](#create-deployments) 
 
 # Docker
 ### 𝖶𝗁𝖺𝗍 𝗂𝗌 𝖣𝗈𝖼𝗄𝖾𝗋?
