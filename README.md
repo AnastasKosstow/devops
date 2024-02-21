@@ -269,17 +269,6 @@ The same exapmle as before - "*𝖼𝗋𝖾𝖺𝗍𝖾 𝖺 𝗌𝖾𝗉𝖺�
        ```console
        docker volume create postgres-db-volume
        ```
-       ```console
-       docker run --name postgres-db `
-         -e POSTGRES_USER=postgres `
-         -e POSTGRES_PASSWORD=12345678 `
-         -e POSTGRES_DB=postgres_db `
-         --network user-net `
-         -v postgres-db-volume:/var/lib/postgresql/data `
-         -p 5432:5432 `
-         --detach `
-         postgres
-       ```
      - 𝖮𝗋 𝗌𝗄𝗂𝗉 𝗍𝗁𝖾 `𝖽𝗈𝖼𝗄𝖾𝗋 𝗏𝗈𝗅𝗎𝗆𝖾 𝖼𝗋𝖾𝖺𝗍𝖾` 𝗌𝗍𝖾𝗉 𝖺𝗇𝖽 𝗃𝗎𝗌𝗍 𝖾𝗑𝖾𝖼𝗎𝗍𝖾 𝗍𝗁𝖾 `𝗋𝗎𝗇` 𝖼𝗈𝗆𝗆𝖺𝗇𝖽 𝗐𝗂𝗍𝗁 `-𝗏` 𝗍𝖺𝗀. 𝖳𝗁𝗂𝗌 𝗐𝖺𝗒 𝗂𝖿 𝗍𝗁𝖾 𝗏𝗈𝗅𝗎𝗆𝖾 𝖽𝗈𝖾𝗌𝗇'𝗍 𝖾𝗑𝗂𝗌𝗍, 𝖣𝗈𝖼𝗄𝖾𝗋 𝗐𝗂𝗅𝗅 𝖼𝗋𝖾𝖺𝗍𝖾 𝗂𝗍 𝖺𝗎𝗍𝗈𝗆𝖺𝗍𝗂𝖼𝖺𝗅𝗅𝗒.
        ```console
        docker run --name postgres-db `
