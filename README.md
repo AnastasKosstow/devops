@@ -666,6 +666,39 @@ docker compose up
                  - containerPort: 5000
      ```
 
+ - #### Deploy pod
+   ```console
+   kubectl apply -f webapp-depl.yaml
+   ```
+
+   -  Verify pod is created:
+      ```console
+      kubectl get deployments
+
+
+      NAME                           READY   STATUS    RESTARTS   AGE
+      webapp-depl-58bc8c8786-62hj2   1/1     Running   0          29s
+      webapp-depl-58bc8c8786-zbz68   1/1     Running   0          29s
+      ```
+      ```console
+      kubectl get pods
+
+
+      NAME          READY   UP-TO-DATE   AVAILABLE   AGE
+      webapp-depl   2/2     2            2           5s
+      ```
+
+      𝖳𝗁𝖾𝗋𝖾 𝖺𝗋𝖾 𝗍𝗐𝗈 𝗉𝗈𝖽𝗌 𝖻𝖾𝖼𝖺𝗎𝗌𝖾 𝗐𝖾 𝗌𝖾𝗍 `𝗋𝖾𝗉𝗅𝗂𝖼𝖺𝗌` 𝗍𝗈 𝖻𝖾 *𝟤* <br>.
+      𝖳𝗁𝗂𝗌 𝗆𝖾𝖺𝗇𝗌 𝗍𝗁𝖺𝗍 𝗍𝗁𝖾𝗋𝖾 𝖺𝗋𝖾 𝗍𝗐𝗈 𝗉𝗈𝖽𝗌, 𝖾𝖺𝖼𝗁 𝗐𝗂𝗍𝗁 𝗈𝗇𝖾 𝖼𝗈𝗇𝗍𝖺𝗂𝗇𝖾𝗋. 𝖳𝗁𝖾 `𝗋𝖾𝗉𝗅𝗂𝖼𝖺𝗌` 𝗌𝖾𝗍𝗍𝗂𝗇𝗀 𝗂𝗇 𝗍𝗁𝖾 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝗂𝗇𝗌𝗍𝗋𝗎𝖼𝗍𝗌 𝖪𝗎𝖻𝖾𝗋𝗇𝖾𝗍𝖾𝗌 𝗍𝗈 𝗆𝖺𝗂𝗇𝗍𝖺𝗂𝗇 𝗍𝗐𝗈 𝗂𝗇𝗌𝗍𝖺𝗇𝖼𝖾𝗌 (𝗋𝖾𝗉𝗅𝗂𝖼𝖺𝗌) 𝗈𝖿 𝗍𝗁𝖾 𝗉𝗈𝖽 𝖺𝗌 𝖽𝖾𝖿𝗂𝗇𝖾𝖽 𝗂𝗇 𝗍𝗁𝖾 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍.
+      ```yaml
+      ...
+      spec:
+        # Specifies the number of instances of your application you want running
+        replicas: 2
+      ...
+      ```
+
+
 
 
 
