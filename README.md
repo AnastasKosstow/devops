@@ -697,6 +697,223 @@ docker compose up
         replicas: 2
       ...
       ```
+ - #### Creating a ClusterIP Service for webApp
+   𝖠 𝖢𝗅𝗎𝗌𝗍𝖾𝗋𝖨𝖯 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗂𝗌 𝗍𝗁𝖾 𝖽𝖾𝖿𝖺𝗎𝗅𝗍 𝖪𝗎𝖻𝖾𝗋𝗇𝖾𝗍𝖾𝗌 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗍𝗁𝖺𝗍 𝗉𝗋𝗈𝗏𝗂𝖽𝖾𝗌 𝖺 𝗌𝗂𝗇𝗀𝗅𝖾 𝗂𝗇𝗍𝖾𝗋𝗇𝖺𝗅 𝖨𝖯 𝖺𝖽𝖽𝗋𝖾𝗌𝗌 𝗍𝗁𝖺𝗍 𝗈𝗍𝗁𝖾𝗋 𝗉𝗈𝖽𝗌 𝗐𝗂𝗍𝗁𝗂𝗇 𝗍𝗁𝖾 𝖼𝗅𝗎𝗌𝗍𝖾𝗋 𝖼𝖺𝗇 𝗎𝗌𝖾 𝗍𝗈 𝖺𝖼𝖼𝖾𝗌𝗌 𝗍𝗁𝖾 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗂𝗍 𝖾𝗑𝗉𝗈𝗌𝖾𝗌. <br>
+   𝖳𝗁𝗂𝗌 𝗂𝗇𝗍𝖾𝗋𝗇𝖺𝗅 𝖨𝖯 𝖺𝖽𝖽𝗋𝖾𝗌𝗌 𝗂𝗌 𝗋𝖾𝖺𝖼𝗁𝖺𝖻𝗅𝖾 𝗈𝗇𝗅𝗒 𝗐𝗂𝗍𝗁𝗂𝗇 𝗍𝗁𝖾 𝖼𝗅𝗎𝗌𝗍𝖾𝗋, 𝗆𝖺𝗄𝗂𝗇𝗀 𝗂𝗍 𝗌𝗎𝗂𝗍𝖺𝖻𝗅𝖾 𝖿𝗈𝗋 𝗂𝗇𝗍𝖾𝗋𝗇𝖺𝗅 𝖼𝗈𝗆𝗆𝗎𝗇𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝖻𝖾𝗍𝗐𝖾𝖾𝗇 𝗌𝖾𝗋𝗏𝗂𝖼𝖾𝗌 𝗅𝗂𝗄𝖾 𝗒𝗈𝗎𝗋 𝗐𝖾𝖻𝖠𝗉𝗉 𝖺𝗇𝖽 𝗂𝗍𝗌 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾.
+
+   𝖡𝖾𝗅𝗈𝗐 𝖾𝗑𝗂𝗌𝗍𝗂𝗇𝗀 `𝗐𝖾𝖻𝖠𝗉𝗉-𝖽𝖾𝗉𝗅.𝗒𝖺𝗆𝗅` 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖺𝗍𝗂𝗈𝗇, 𝗐𝖾 𝗐𝗂𝗅𝗅 𝖺𝖽𝖽 𝖺 𝗇𝖾𝗐 𝗌𝖾𝖼𝗍𝗂𝗈𝗇 𝖿𝗈𝗋 𝗍𝗁𝖾 𝖢𝗅𝗎𝗌𝗍𝖾𝗋𝖨𝖯 𝗌𝖾𝗋𝗏𝗂𝖼𝖾. <br>
+   𝖬𝖺𝗄𝖾 𝗌𝗎𝗋𝖾 𝗍𝗈 𝗌𝖾𝗉𝖺𝗋𝖺𝗍𝖾 𝗍𝗁𝖾 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝖺𝗇𝖽 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖺𝗍𝗂𝗈𝗇𝗌 𝗐𝗂𝗍𝗁 𝖺 𝗍𝗋𝗂𝗉𝗅𝖾-𝖽𝖺𝗌𝗁 (---) 𝗍𝗈 𝗌𝗂𝗀𝗇𝗂𝖿𝗒 𝗍𝗈 𝖪𝗎𝖻𝖾𝗋𝗇𝖾𝗍𝖾𝗌 𝗍𝗁𝖺𝗍 𝗍𝗁𝖾𝗌𝖾 𝖺𝗋𝖾 𝖽𝗂𝗌𝗍𝗂𝗇𝖼𝗍 𝗋𝖾𝗌𝗈𝗎𝗋𝖼𝖾𝗌 𝖽𝖾𝖿𝗂𝗇𝖾𝖽 𝗂𝗇 𝗍𝗁𝖾 𝗌𝖺𝗆𝖾 𝖿𝗂𝗅𝖾.
+   
+   ```yaml
+   ...
+   # Deployment configuration for webApp
+   ...
+
+   ---
+   # Specifies the API version for the Service object.
+   apiVersion: v1
+    # Defines the kind of Kubernetes resource you are creating, which is a Service in this case.
+   kind: Service
+   metadata:
+     # The name of the Service, which is used to uniquely identify it within the namespace.
+     name: webapp-service
+   spec:
+     # Specifies the type of Service. ClusterIP exposes the Service on a cluster-internal IP.
+     type: ClusterIP
+     selector:
+       # The selector field defines how the Service finds which Pods to route traffic to, using labels.
+       app: webapp
+     ports:
+         # An identifier for the port. This name can be anything and is simply a descriptive field.
+       - name: webapp
+         # The port number that the Service will listen on.
+         port: 80 
+         # The target port on the Pod(s) to which this Service will forward traffic.
+         targetPort: 5000
+         # Specifies the network protocol this Service will support. TCP is commonly used for web applications. 
+         protocol: TCP 
+
+   ```
+
+   -  Verify services:
+      ```console
+      kubectl get services
+
+
+      NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+      kubernetes       ClusterIP   10.96.0.1       <none>        443/TCP   21h
+      webapp-service   ClusterIP   10.111.157.76   <none>        80/TCP    8s
+      ```
+
+ - #### Creating a Deployment and Service for Postgres
+   𝖭𝗈𝗐, 𝗅𝖾𝗍'𝗌 𝖼𝗋𝖾𝖺𝗍𝖾 𝗍𝗁𝖾 𝖯𝗈𝗌𝗍𝗀𝗋𝖾𝖲𝖰𝖫 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝖺𝗅𝗈𝗇𝗀 𝗐𝗂𝗍𝗁 𝖺 𝖢𝗅𝗎𝗌𝗍𝖾𝗋𝖨𝖯 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗂𝗇 𝖺 𝗌𝗂𝗇𝗀𝗅𝖾 𝖸𝖠𝖬𝖫 𝖿𝗂𝗅𝖾, 𝖿𝗈𝗅𝗅𝗈𝗐𝗂𝗇𝗀 𝗍𝗁𝖾 𝗌𝖺𝗆𝖾 𝖺𝗉𝗉𝗋𝗈𝖺𝖼𝗁.
+
+   ```yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     name: postgres-depl
+   spec:
+     replicas: 2
+     selector:
+       matchLabels:
+         app: postgres
+     template:
+       metadata:
+         labels:
+           app: postgres
+       spec:
+         containers:
+         - name: postgres-container
+           image: postgres:latest
+           env:
+             - name: POSTGRES_USER
+               value: "postgres"
+             - name: POSTGRES_PASSWORD
+               value: "12345678"
+             - name: POSTGRES_DB
+               value: "postgres_db"
+           ports:
+             - containerPort: 5432
+   ---
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: postgres-service
+   spec:
+     type: ClusterIP
+     selector:
+       app: postgres
+     ports:
+       - name: postgres
+         port: 5432
+         targetPort: 5432
+         protocol: TCP
+   ```
+
+    - Deploy
+      ```console
+      kubectl apply -f postgres-depl.yaml
+      ```
+
+    - Verify deployments and services:
+      ```console
+      kubectl get pods 
+
+
+      NAME                                   READY   STATUS    RESTARTS   AGE
+      postgres-depl-78c4576f7d-cxzrw         1/1     Running   0          79s
+      postgres-depl-78c4576f7d-fjdt6         1/1     Running   0          79s
+      webapp-depl-58bc8c8786-l42qh           1/1     Running   0          88s
+      webapp-depl-58bc8c8786-rspcp           1/1     Running   0          88s
+      ```
+
+      ```console
+      kubectl get deployments 
+
+
+      NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
+      postgres-depl         2/2     2            2           4s
+      webapp-depl           2/2     2            2           13s
+      ```
+
+      ```console
+      kubectl get services 
+
+
+      NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+      kubernetes         ClusterIP   10.96.0.1       <none>        443/TCP    21h
+      postgres-service   ClusterIP   10.98.217.190   <none>        5432/TCP   5m35s
+      webapp-service     ClusterIP   10.111.157.76   <none>        80/TCP     13m
+      ```
+
+ - #### Creating ConfigMap and Secret
+
+   𝖪𝗎𝖻𝖾𝗋𝗇𝖾𝗍𝖾𝗌 𝗉𝗋𝗈𝗏𝗂𝖽𝖾𝗌 𝖢𝗈𝗇𝖿𝗂𝗀𝖬𝖺𝗉𝗌 𝖺𝗇𝖽 𝖲𝖾𝖼𝗋𝖾𝗍𝗌 𝗍𝗈 𝗆𝖺𝗇𝖺𝗀𝖾 𝖼𝗈𝗇𝖿𝗂𝗀𝗎𝗋𝖺𝗍𝗂𝗈𝗇 𝖽𝖺𝗍𝖺 𝖺𝗇𝖽 𝗌𝖾𝗇𝗌𝗂𝗍𝗂𝗏𝖾 𝗂𝗇𝖿𝗈𝗋𝗆𝖺𝗍𝗂𝗈𝗇 𝗌𝖾𝗉𝖺𝗋𝖺𝗍𝖾𝗅𝗒 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝖺𝗉𝗉𝗅𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝖼𝗈𝖽𝖾. <br>
+   𝖴𝗌𝗂𝗇𝗀 𝖺 `𝖢𝗈𝗇𝖿𝗂𝗀𝖬𝖺𝗉` 𝖿𝗈𝗋 𝗇𝗈𝗇-𝗌𝖾𝗇𝗌𝗂𝗍𝗂𝗏𝖾 𝖽𝖺𝗍𝖺, 𝗅𝗂𝗄𝖾 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗇𝖺𝗆𝖾, 𝖺𝗅𝗅𝗈𝗐𝗌 𝗍𝗁𝖾 𝗐𝖾𝖻 𝖺𝗉𝗉𝗅𝗂𝖼𝖺𝗍𝗂𝗈𝗇 𝗍𝗈 𝖽𝗒𝗇𝖺𝗆𝗂𝖼𝖺𝗅𝗅𝗒 𝖽𝗂𝗌𝖼𝗈𝗏𝖾𝗋 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾. <br>
+   𝖬𝖾𝖺𝗇𝗐𝗁𝗂𝗅𝖾, 𝖺 `𝖲𝖾𝖼𝗋𝖾𝗍` 𝗌𝖾𝖼𝗎𝗋𝖾𝗅𝗒 𝗌𝗍𝗈𝗋𝖾𝗌 𝗌𝖾𝗇𝗌𝗂𝗍𝗂𝗏𝖾 𝖽𝖺𝗍𝖺, 𝗌𝗎𝖼𝗁 𝖺𝗌 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𝖺𝗇𝖽 𝗉𝖺𝗌𝗌𝗐𝗈𝗋𝖽, 𝖾𝗇𝗌𝗎𝗋𝗂𝗇𝗀 𝗍𝗁𝖺𝗍 𝗍𝗁𝖾𝗌𝖾 𝖽𝖾𝗍𝖺𝗂𝗅𝗌 𝖺𝗋𝖾 𝗇𝗈𝗍 𝖾𝗑𝗉𝗈𝗌𝖾𝖽 𝗂𝗇 𝗉𝗅𝖺𝗂𝗇 𝗍𝖾𝗑𝗍 𝗂𝗇 𝗍𝗁𝖾 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌.
+
+   - Creating a Secret for Database Credentials:
+     𝖥𝗂𝗋𝗌𝗍, 𝗐𝖾'𝗅𝗅 𝖼𝗋𝖾𝖺𝗍𝖾 𝖺 𝖲𝖾𝖼𝗋𝖾𝗍 𝗍𝗈 𝗌𝖾𝖼𝗎𝗋𝖾𝗅𝗒 𝗌𝗍𝗈𝗋𝖾 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𝖺𝗇𝖽 𝗉𝖺𝗌𝗌𝗐𝗈𝗋𝖽. 𝖳𝗁𝗂𝗌 𝖲𝖾𝖼𝗋𝖾𝗍 𝗐𝗂𝗅𝗅 𝖻𝖾 𝗋𝖾𝖿𝖾𝗋𝖾𝗇𝖼𝖾𝖽 𝗂𝗇 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝗍𝗈 𝗌𝖾𝗍 𝗍𝗁𝖾 𝖾𝗇𝗏𝗂𝗋𝗈𝗇𝗆𝖾𝗇𝗍 𝗏𝖺𝗋𝗂𝖺𝖻𝗅𝖾𝗌 𝗌𝖾𝖼𝗎𝗋𝖾𝗅𝗒. <br>
+     Create `postgres-credentials.yaml` file.
+     ```yaml
+     apiVersion: v1
+     kind: Secret
+     metadata:
+       name: postgres-credentials
+     type: Opaque
+     data:
+       username: cG9zdGdyZXNfdXNlcg==  # Base64 encoded 'postgres'
+       password: MTIzNDU2Nzg=          # Base64 encoded '12345678'
+     ```
+     
+> [!NOTE]
+> The data values must be base64 encoded strings. Use a base64 encoder to convert your plain text values to base64.
+     
+   - Creating a ConfigMap for Database Connection Details:
+     𝖭𝖾𝗑𝗍, 𝗐𝖾'𝗅𝗅 𝖼𝗋𝖾𝖺𝗍𝖾 𝖺 𝖢𝗈𝗇𝖿𝗂𝗀𝖬𝖺𝗉 𝗍𝗈 𝗌𝗍𝗈𝗋𝖾 𝗍𝗁𝖾 𝗇𝖺𝗆𝖾 𝗈𝖿 𝗍𝗁𝖾 𝖯𝗈𝗌𝗍𝗀𝗋𝖾𝖲𝖰𝖫 𝗌𝖾𝗋𝗏𝗂𝖼𝖾. 𝖳𝗁𝗂𝗌 𝖺𝗅𝗅𝗈𝗐𝗌 𝗍𝗁𝖾 𝗐𝖾𝖻𝖠𝗉𝗉 𝗍𝗈 𝖽𝗒𝗇𝖺𝗆𝗂𝖼𝖺𝗅𝗅𝗒 𝗋𝖾𝖿𝖾𝗋𝖾𝗇𝖼𝖾 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗐𝗂𝗍𝗁𝗈𝗎𝗍 𝗁𝖺𝗋𝖽𝖼𝗈𝖽𝗂𝗇𝗀 𝗌𝖾𝗋𝗏𝗂𝖼𝖾 𝗇𝖺𝗆𝖾𝗌. <br>
+     Create `db-connection-details.yaml` file.
+     ```yaml
+     apiVersion: v1
+     kind: ConfigMap
+     metadata:
+       name: db-connection-details
+     data:
+       database_host: postgres-service  # Name of the PostgreSQL service
+       database_port: "5432"            # Port the PostgreSQL service is exposed on
+     ```
+   - 𝖴𝗉𝖽𝖺𝗍𝗂𝗇𝗀 𝗍𝗁𝖾 𝗐𝖾𝖻𝖠𝗉𝗉 𝖣𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝗍𝗈 𝖴𝗌𝖾 𝖢𝗈𝗇𝖿𝗂𝗀𝖬𝖺𝗉 𝖺𝗇𝖽 𝖲𝖾𝖼𝗋𝖾𝗍
+     𝖭𝗈𝗐 we need to 𝗎𝗉𝖽𝖺𝗍𝖾 𝗍𝗁𝖾 𝗐𝖾𝖻𝖠𝗉𝗉 𝖽𝖾𝗉𝗅𝗈𝗒𝗆𝖾𝗇𝗍 𝗍𝗈 𝗎𝗌𝖾 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗁𝗈𝗌𝗍 𝖺𝗇𝖽 𝗉𝗈𝗋𝗍 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝖢𝗈𝗇𝖿𝗂𝗀𝖬𝖺𝗉 𝖺𝗇𝖽 𝗍𝗁𝖾 𝖽𝖺𝗍𝖺𝖻𝖺𝗌𝖾 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𝖺𝗇𝖽 𝗉𝖺𝗌𝗌𝗐𝗈𝗋𝖽 𝖿𝗋𝗈𝗆 𝗍𝗁𝖾 𝖲𝖾𝖼𝗋𝖾𝗍.
+
+     ```yaml
+     apiVersion: apps/v1
+     kind: Deployment
+     metadata:
+       name: webapp-depl
+     spec:
+       ...
+         spec:
+           containers:
+           - name: webapp-container
+             image: webapp-img
+             env:
+             - name: DATABASE_HOST
+               valueFrom:
+                 configMapKeyRef:
+                   name: db-connection-details
+                   key: database_host
+             - name: DATABASE_PORT
+               valueFrom:
+                 configMapKeyRef:
+                   name: db-connection-details
+                   key: database_port
+             - name: POSTGRES_USER
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: username
+             - name: POSTGRES_PASSWORD
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: password
+     ```
+
+   - Deploying ConfigMap and Secret and update webApp deployment
+  
+     - Deploy the Secret:
+       ```console
+       kubectl apply -f postgres-credentials.yaml
+       ```
+     - Deploy the ConfigMap:
+       ```console
+       kubectl apply -f db-connection-details.yaml
+       ```
+     - Update the webApp deployment:
+       ```console
+       kubectl apply -f webapp-depl.yaml
+       ```
+
 
 
 
