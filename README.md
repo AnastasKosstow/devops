@@ -646,7 +646,7 @@ docker compose up
        replicas: 2
        selector:
          matchLabels:
-           # The selector field defines how the Deployment finds which Pods to manage.
+           # The selector field defines how the Deployment finds which Pods to manage
            # In this case, it's managing Pods with the label "app: webapp"
            app: webapp
        # The template field contains the specifications of the Pods that should be created
@@ -659,7 +659,7 @@ docker compose up
            containers:
              # The name of the container within the Pod
              - name: webapp-container
-               # The Docker image for the container.
+               # The Docker image for the container
                image: webapp-img
                ports:
                  # The port that the container exposes
@@ -712,29 +712,29 @@ docker compose up
    ---
    # Specifies the API version for the Service object.
    apiVersion: v1
-   # Defines the kind of Kubernetes resource you are creating,
-   # which is a Service in this case.
+   # Defines the kind of Kubernetes resource you are creating
+   # which is a Service in this case
    kind: Service
    metadata:
      # The name of the Service,
-     # which is used to uniquely identify it within the namespace.
+     # which is used to uniquely identify it within the namespace
      name: webapp-service
    spec:
      # Specifies the type of Service.
-     # ClusterIP exposes the Service on a cluster-internal IP.
+     # ClusterIP exposes the Service on a cluster-internal IP
      type: ClusterIP
      selector:
-       # Defines how the Service finds which Pods to route traffic to, using labels.
+       # Defines how the Service finds which Pods to route traffic to, using labels
        app: webapp
      ports:
          # An identifier for the port.
-         # This name can be anything and is simply a descriptive field.
+         # This name can be anything and is simply a descriptive field
        - name: webapp
-         # The port number that the Service will listen on.
+         # The port number that the Service will listen on
          port: 80 
-         # The target port on the Pod(s) to which this Service will forward traffic.
+         # The target port on the Pod(s) to which this Service will forward traffic
          targetPort: 5000
-         # Specifies the network protocol this Service will support.
+         # Specifies the network protocol this Service will support
          # TCP is commonly used for web applications. 
          protocol: TCP 
 
