@@ -662,7 +662,7 @@ docker compose up
                # The Docker image for the container.
                image: webapp-img
                ports:
-                 # The port that the container exposes. Change this to match the port your app listens on
+                 # The port that the container exposes
                  - containerPort: 5000
      ```
 
